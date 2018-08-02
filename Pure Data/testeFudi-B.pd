@@ -1,0 +1,220 @@
+#N canvas 231 39 1023 672 10;
+#X obj 70 28 loadbang;
+#X msg 70 49 connect 255.255.255.255 5051;
+#X msg 76 83 disconnect;
+#X obj 62 414 loadbang;
+#X msg 62 435 listen 5050;
+#X msg 71 461 listen 0;
+#X obj 62 499 netreceive -u;
+#X obj 121 335 netsend -u;
+#X obj 259 73 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 288 73 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 319 73 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 348 73 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 204 484 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 233 484 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 264 484 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 293 484 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 204 623 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 233 623 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 264 623 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 293 623 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 182 447 unpack f f f f;
+#X msg 225 303 send \$1 \$2;
+#X msg 259 278 list slider1 \$1;
+#X msg 288 263 list slider2 \$1;
+#X msg 319 247 list slider3 \$1;
+#X msg 348 232 list slider4 \$1;
+#X obj 254 4 tgl 35 0 empty empty empty 17 7 0 10 -159808 -1 -1 0 1
+;
+#X obj 680 415 fudiparse;
+#X obj 671 310 fudiformat;
+#N canvas 369 218 450 300 movimento 0;
+#X obj 189 172 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 189 142 snapshot~;
+#X obj 116 118 metro 20;
+#X obj 188 103 +~ 1;
+#X obj 188 123 *~ 63.5;
+#X obj 116 139 s mtr;
+#X obj 218 191 pipe 200;
+#X obj 249 210 pipe 200;
+#X obj 278 229 pipe 200;
+#X obj 116 20 inlet;
+#X obj 100 269 outlet sl1;
+#X obj 170 269 outlet sl2;
+#X obj 241 269 outlet sl3;
+#X obj 311 269 outlet sl4;
+#X obj 188 82 osc~ 0.5;
+#X msg 343 49 \; pd dsp 1;
+#X obj 343 28 loadbang;
+#X connect 0 0 6 0;
+#X connect 0 0 10 0;
+#X connect 1 0 0 0;
+#X connect 2 0 5 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 1 0;
+#X connect 6 0 7 0;
+#X connect 6 0 11 0;
+#X connect 7 0 8 0;
+#X connect 7 0 12 0;
+#X connect 8 0 13 0;
+#X connect 9 0 2 0;
+#X connect 14 0 3 0;
+#X connect 16 0 15 0;
+#X restore 254 41 pd movimento;
+#X obj 655 75 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 684 75 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 715 75 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 744 75 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 650 6 tgl 35 0 empty empty empty 17 7 0 10 -159808 -1 -1 0 1
+;
+#N canvas 0 22 450 300 movimento 0;
+#X obj 189 172 nbx 5 14 -1e+37 1e+37 0 0 empty empty empty 0 -8 0 10
+-262144 -1 -1 0 256;
+#X obj 189 142 snapshot~;
+#X obj 116 118 metro 20;
+#X obj 188 82 osc~ 0.4;
+#X obj 188 103 +~ 1;
+#X obj 188 123 *~ 63.5;
+#X obj 116 139 s mtr;
+#X obj 218 191 pipe 200;
+#X obj 249 210 pipe 200;
+#X obj 278 229 pipe 200;
+#X obj 116 20 inlet;
+#X obj 100 269 outlet sl1;
+#X obj 170 269 outlet sl2;
+#X obj 241 269 outlet sl3;
+#X obj 311 269 outlet sl4;
+#X connect 0 0 7 0;
+#X connect 0 0 11 0;
+#X connect 1 0 0 0;
+#X connect 2 0 6 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 0;
+#X connect 7 0 8 0;
+#X connect 7 0 12 0;
+#X connect 8 0 9 0;
+#X connect 8 0 13 0;
+#X connect 9 0 14 0;
+#X connect 10 0 2 0;
+#X restore 650 43 pd movimento;
+#X obj 654 223 f;
+#X obj 684 223 t b f;
+#X obj 725 223 t b f;
+#X obj 765 223 t b f;
+#X obj 671 266 pack f f f f;
+#X obj 470 28 loadbang;
+#X msg 476 83 disconnect;
+#X obj 521 343 netsend -u -b;
+#X obj 546 301 list prepend send;
+#X obj 546 322 list trim;
+#X msg 470 49 connect 255.255.255.255 6061;
+#X msg 671 287 slider1 \$1 \, slider2 \$2 \, slider3 \$3 \, slider4
+\$4 \;;
+#X obj 560 406 loadbang;
+#X msg 569 453 listen 0;
+#X obj 702 476 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 731 476 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 762 476 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 791 476 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 702 615 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 731 615 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 762 615 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 791 615 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 680 439 unpack f f f f;
+#X obj 560 491 netreceive -u -b;
+#X msg 560 427 listen 6060;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X connect 6 0 20 0;
+#X connect 8 0 22 0;
+#X connect 9 0 23 0;
+#X connect 10 0 24 0;
+#X connect 11 0 25 0;
+#X connect 12 0 16 0;
+#X connect 13 0 17 0;
+#X connect 14 0 18 0;
+#X connect 15 0 19 0;
+#X connect 20 0 12 0;
+#X connect 20 1 13 0;
+#X connect 20 2 14 0;
+#X connect 20 3 15 0;
+#X connect 21 0 7 0;
+#X connect 22 0 21 0;
+#X connect 23 0 21 0;
+#X connect 24 0 21 0;
+#X connect 25 0 21 0;
+#X connect 26 0 29 0;
+#X connect 27 0 58 0;
+#X connect 28 0 44 0;
+#X connect 29 0 8 0;
+#X connect 29 1 9 0;
+#X connect 29 2 10 0;
+#X connect 29 3 11 0;
+#X connect 30 0 36 0;
+#X connect 31 0 37 0;
+#X connect 32 0 38 0;
+#X connect 33 0 39 0;
+#X connect 34 0 35 0;
+#X connect 35 0 30 0;
+#X connect 35 1 31 0;
+#X connect 35 2 32 0;
+#X connect 35 3 33 0;
+#X connect 36 0 40 0;
+#X connect 37 0 40 0;
+#X connect 37 1 40 1;
+#X connect 38 0 40 0;
+#X connect 38 1 40 2;
+#X connect 39 0 40 0;
+#X connect 39 1 40 3;
+#X connect 40 0 47 0;
+#X connect 41 0 46 0;
+#X connect 42 0 43 0;
+#X connect 44 0 45 0;
+#X connect 45 0 43 0;
+#X connect 46 0 43 0;
+#X connect 47 0 28 0;
+#X connect 48 0 60 0;
+#X connect 49 0 59 0;
+#X connect 50 0 54 0;
+#X connect 51 0 55 0;
+#X connect 52 0 56 0;
+#X connect 53 0 57 0;
+#X connect 58 0 50 0;
+#X connect 58 1 51 0;
+#X connect 58 2 52 0;
+#X connect 58 3 53 0;
+#X connect 59 0 27 0;
+#X connect 60 0 59 0;

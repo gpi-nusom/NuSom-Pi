@@ -1,0 +1,37 @@
+#N canvas 241 152 845 550 10;
+#X obj 78 121 loadbang;
+#X msg 107 202 disconnect;
+#X floatatom 107 334 5 0 0 0 - - -, f 5;
+#X obj 573 149 loadbang;
+#X obj 573 272 netreceive -u;
+#X msg 503 216 listen 0;
+#X msg 573 190 listen 54321;
+#X obj 573 300 print ESP;
+#X obj 286 323 bng 55 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 286 383 send 1;
+#X obj 286 234 tgl 50 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 107 354 send \$1;
+#X obj 78 422 netsend -u;
+#X obj 286 293 metro 100;
+#X msg 78 142 connect 192.168.2.2 4210;
+#X text 653 192 porta UDP pela qual o ESP está enviando dados, f
+24;
+#X text 347 324 Envia um sinal para vibrar, f 11;
+#X text 284 34 TESTE DO ESP8266 COM MOTOR VIBRACALL;
+#X text 236 140 Colocar o endereço de IP e porta UDP desta máquina
+(endereço e porta de envio para o ESP8266), f 27;
+#X connect 0 0 14 0;
+#X connect 1 0 12 0;
+#X connect 2 0 11 0;
+#X connect 3 0 6 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 6 0 4 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 10 0 13 0;
+#X connect 11 0 12 0;
+#X connect 13 0 8 0;
+#X connect 14 0 12 0;

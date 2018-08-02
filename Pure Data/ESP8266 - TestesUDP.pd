@@ -1,0 +1,37 @@
+#N canvas 243 31 845 550 10;
+#X obj 58 88 loadbang;
+#X msg 93 252 disconnect;
+#X floatatom 141 294 5 0 0 0 - - -, f 5;
+#X msg 141 314 send \$1;
+#X obj 489 88 loadbang;
+#X obj 489 211 netreceive -u;
+#X msg 414 154 listen 0;
+#X obj 112 352 netsend -u;
+#X msg 489 124 listen 54321;
+#X obj 595 263 change;
+#X obj 595 286 tgl 45 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 595 335 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 490 367 print ESP;
+#X msg 58 167 connect 192.168.100.181 4210;
+#X text 139 369 envia dados para o ESP8266;
+#X text 576 210 recebe dados enviados pelo ESP8266;
+#X text 117 183 Colocar o endereço de IP e porta UDP de recebimento
+no ESP8266, f 26;
+#X text 440 169 desativa recebimento de pacotes;
+#X text 531 138 porta UDP pela qual o ESP está enviando dados;
+#X text 222 25 TESTE DE COMUNICAÇÃO PORTA DIGITAL/ANALÓGICA DO ESP8266
+;
+#X connect 0 0 13 0;
+#X connect 1 0 7 0;
+#X connect 2 0 3 0;
+#X connect 3 0 7 0;
+#X connect 4 0 8 0;
+#X connect 5 0 9 0;
+#X connect 5 0 12 0;
+#X connect 6 0 5 0;
+#X connect 8 0 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 13 0 7 0;

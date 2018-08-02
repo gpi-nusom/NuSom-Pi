@@ -1,0 +1,44 @@
+#N canvas 252 80 845 465 10;
+#X obj 38 97 loadbang;
+#X msg 67 182 disconnect;
+#X floatatom 181 214 5 0 0 0 - - -, f 5;
+#X msg 181 234 send \$1;
+#X msg 38 157 connect 192.168.2.4 4210;
+#X obj 449 99 loadbang;
+#X obj 503 192 netreceive -u;
+#X msg 478 145 listen 0;
+#X obj 152 272 netsend -u;
+#X msg 449 120 listen 54321;
+#X obj 503 407 print ESP;
+#X obj 587 272 unpack f f;
+#X floatatom 644 331 5 0 0 0 - - -, f 5;
+#X obj 644 309 change;
+#X obj 644 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 587 331 5 0 0 0 - - -, f 5;
+#X obj 587 309 change;
+#X obj 587 355 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 525 329 Humidade;
+#X text 681 330 Temperatura;
+#X text 532 117 porta UDP pela qual o ESP está enviando;
+#X text 185 18 TESTE DO ESP8266 COM SENSOR DHT11 (HUMIDADE E TEMPERATURA)
+;
+#X text 198 147 Colocar o endereço de IP e porta UDP desta máquina
+(endereço e porta de envio para o ESP8266), f 27;
+#X connect 0 0 4 0;
+#X connect 1 0 8 0;
+#X connect 2 0 3 0;
+#X connect 3 0 8 0;
+#X connect 4 0 8 0;
+#X connect 5 0 9 0;
+#X connect 6 0 10 0;
+#X connect 6 0 11 0;
+#X connect 7 0 6 0;
+#X connect 9 0 6 0;
+#X connect 11 0 16 0;
+#X connect 11 1 13 0;
+#X connect 12 0 14 0;
+#X connect 13 0 12 0;
+#X connect 15 0 17 0;
+#X connect 16 0 15 0;
