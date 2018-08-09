@@ -18,7 +18,7 @@ WiFiUDP Udp;  /* Instanciação de WiFiUDP através da criação do objeto Udp *
 unsigned int portaLocal_UDP = 4210;  // Variável contendo o número da porta UDP de entrada
 char incomingPacket[255];  // Buffer de memória para pacotes UDP que chegarem
 
-const char* IP_host = "192.168.100.100";   // Endereço de IP para onde serão enviados os pacotes
+const char* IP_host = "192.168.100.255";   // Endereço de IP para onde serão enviados os pacotes
 unsigned int portaUDP_host = 54321;   // Variável contendo o número da porta UDP de saída
 
 /* NOTA:
