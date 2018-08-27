@@ -1,0 +1,10 @@
+#N canvas 415 22 677 387 10;
+#X msg 187 96 read ./bus-mov-model-sp/20170413_easter/buses_quinta.xml
+;
+#X obj 196 188 msgfile;
+#X obj 196 283 print data;
+#X obj 58 81 bng 45 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;

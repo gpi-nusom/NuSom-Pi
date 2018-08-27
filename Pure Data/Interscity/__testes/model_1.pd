@@ -1,0 +1,5 @@
+#N canvas 735 121 450 300 10;
+#X obj 130 103 text;
+#X msg 137 48 read /Users/Julian/Documents/JULY/2018/InterSCity/bus-mov-model-sp/20171028_saturday.xml
+;
+#X connect 1 0 0 0;
