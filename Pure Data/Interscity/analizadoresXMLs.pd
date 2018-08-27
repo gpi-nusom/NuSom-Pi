@@ -1,0 +1,244 @@
+#N canvas 518 53 584 515 10;
+#X declare -lib pof;
+#X obj 8 7 declare -lib pof;
+#X text 112 7 carrega a biblioteca POF;
+#N canvas 244 303 220 300 linhasOnibus 0;
+#X obj 12 78 pofxml onibus;
+#X msg 12 59 getnum /;
+#X obj 12 12 bng 35 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#N canvas 501 287 295 254 contador 0;
+#X obj 76 138 f;
+#X obj 117 138 + 1;
+#X obj 76 104 until;
+#X obj 117 159 mod 10;
+#X obj 166 127 sel 0;
+#X obj 123 20 inlet;
+#X obj 76 217 outlet;
+#X obj 123 70 t f f;
+#X connect 0 0 1 0;
+#X connect 0 0 6 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 3 0 0 1;
+#X connect 4 0 2 1;
+#X connect 5 0 7 0;
+#X connect 7 0 2 0;
+#X connect 7 1 3 1;
+#X restore 12 113 pd contador;
+#X obj 12 151 pofxml onibus;
+#X msg 12 132 gets bus[\$1][@id];
+#X text 59 10 Imprime na Janela do Pd todas as Linhas de Ônibus,
+f 23;
+#X obj 12 186 route gets;
+#X obj 12 222 print;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 4 0;
+#X connect 7 0 8 0;
+#X coords 0 -1 1 1 200 40 2 10 10;
+#X restore 187 43 pd linhasOnibus;
+#N canvas 196 112 947 585 dias 0;
+#X obj 46 526 pofxml mapas;
+#X obj 325 99 route 0 1 2 3 4 5 6 7;
+#X obj 142 526 pofxml onibus;
+#X obj 40 48 vradio 16 1 0 8 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X text 58 64 Domingo 22.10.2017;
+#X text 58 48 Páscoa 13.04.2017;
+#X obj 47 22 cnv 22 112 22 empty empty Dia_da_Semana 10 12 0 12 -233017
+-66577 0;
+#X text 58 80 Segunda 23.10.2017;
+#X text 58 96 Terça 24.10.2017;
+#X text 58 112 Quarta 25.10.2017;
+#X text 58 128 Quinta 26.10.2017;
+#X text 58 145 Sexta 27.10.2017;
+#X text 58 161 Sábado 28.10.2017;
+#X obj 46 505 r \$0-Mapa;
+#X obj 142 505 r \$0-Onibus;
+#X obj 171 416 f \$0;
+#X msg 171 437 \; \$1-Mapa load ./bus-mov-model-sp/20170413_easter/map_20170413.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20170413_easter/buses_quinta.xml
+\;, f 70;
+#X obj 206 376 f \$0;
+#X obj 245 333 f \$0;
+#X obj 283 295 f \$0;
+#X obj 320 253 f \$0;
+#X obj 358 213 f \$0;
+#X obj 393 170 f \$0;
+#X obj 430 127 f \$0;
+#X msg 206 396 \; \$1-Mapa load ./bus-mov-model-sp/20171022_sunday/map_20171022.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20171022_sunday/buses_20171022.xml
+\;, f 70;
+#X msg 245 355 \; \$1-Mapa load ./bus-mov-model-sp/20171023_monday/map_20171023.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20171023_monday/buses_20171023.xml
+\;, f 70;
+#X msg 283 314 \; \$1-Mapa load ./bus-mov-model-sp/20171024_tuesday/map_20171024.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20171024_tuesday/buses_20171024.xml
+\;, f 71;
+#X msg 320 273 \; \$1-Mapa load ./bus-mov-model-sp/20171025_wednesday/map_20171025.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20171025_wednesday/buses_20171025.xml
+\;, f 73;
+#X msg 358 232 \; \$1-Mapa load ./bus-mov-model-sp/20171026_thursday/map_20171026.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20171026_thursday/buses_20171026.xml
+\;, f 72;
+#X msg 393 190 \; \$1-Mapa load ./bus-mov-model-sp/20171027_friday/map_20171027.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20171027_friday/buses_20171027.xml
+\;, f 70;
+#X msg 430 148 \; \$1-Mapa load ./bus-mov-model-sp/20171028_saturday/map_20171028.xml
+\; \$1-Onibus load ./bus-mov-model-sp/20171028_saturday/buses_20171028.xml
+\;, f 72;
+#X text 291 17 ### Descrição;
+#X text 322 43 Carrega os aruivos XML de ônibus e mapa do dia selecionado
+para análise.;
+#X connect 1 0 15 0;
+#X connect 1 1 17 0;
+#X connect 1 2 18 0;
+#X connect 1 3 19 0;
+#X connect 1 4 20 0;
+#X connect 1 5 21 0;
+#X connect 1 6 22 0;
+#X connect 1 7 23 0;
+#X connect 3 0 1 0;
+#X connect 13 0 0 0;
+#X connect 14 0 2 0;
+#X connect 15 0 16 0;
+#X connect 17 0 24 0;
+#X connect 18 0 25 0;
+#X connect 19 0 26 0;
+#X connect 20 0 27 0;
+#X connect 21 0 28 0;
+#X connect 22 0 29 0;
+#X connect 23 0 30 0;
+#X coords 0 -1 1 1 169 160 2 20 20;
+#X restore 8 43 pd dias;
+#N canvas 68 48 450 300 intervalos 0;
+#X text 14 13 Retorna lista com dados de interval;
+#X text 123 42 linha de ônibus;
+#X msg 24 115 get bus[@id=\$1][@interval];
+#X obj 24 136 pofxml onibus;
+#X symbolatom 24 40 16 0 0 0 - - -, f 16;
+#X obj 24 157 route get;
+#X obj 24 178 print;
+#N canvas 0 22 450 300 ajudaInterval 0;
+#X obj 10 10 bng 15 250 50 0 empty empty ? 5 8 0 10 -241339 -1 -260097
+;
+#X msg 10 93 \; pd-Ajuda_sobre_interval vis 1;
+#N canvas 618 204 463 253 Ajuda_sobre_interval 0;
+#X text 19 13 ### Descrição dos atributos nos xml dos ônibus;
+#X text 50 46 interval => Lista de 24 posições (variando de 0 a 23)
+separadas por vírgula. Cada posição da lista corresponde a uma faixa
+de horário \, onde a posição 0 representa o intervalo de 0h00 até
+0h59 \, a posição 1 representa o intervalo de 1h00 até 1h59 \, e
+assim por diante até às 23h00. Nela são armazenadas as frequências
+(em segundos) em que os ônibus de uma determinada linha são lançados
+às ruas \, considerando a faixa horária. Os valores combinam informações
+do planejamento da SPTrans e do sistema de monitoramento Olho Vivo
+\, também da SPTrans. => Campo que apresenta o horário real em que
+a linha começou a circular naquele dia. Os dados foram retirados do
+banco de dados fornecido pela Scipopulis \, capturadas pelo Olho Vivo.
+;
+#X restore 10 128 pd Ajuda_sobre_interval;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 15 15 2 10 10;
+#X restore 228 53 pd ajudaInterval;
+#X connect 2 0 3 0;
+#X connect 3 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 6 0;
+#X coords 0 -1 1 1 235 60 2 10 10;
+#X restore 189 92 pd intervalos;
+#N canvas 596 289 450 300 horário_de_início 0;
+#X text 132 40 linha de ônibus;
+#X obj 33 136 pofxml onibus;
+#X symbolatom 33 38 16 0 0 0 - - -, f 16;
+#X obj 33 157 route get;
+#X obj 33 178 print;
+#X text 16 15 Retorna dado de start_time;
+#X msg 33 115 get bus[@id=\$1][@start_time];
+#N canvas 452 275 450 300 ajuda 0;
+#X obj 10 10 bng 15 250 50 0 empty empty ? 5 8 0 10 -241339 -1 -260097
+;
+#X msg 10 93 \; pd-Ajuda_sobre_start_time vis 1;
+#N canvas 618 204 463 137 Ajuda_sobre_start_time 0;
+#X text 19 13 ### Descrição dos atributos nos xml dos ônibus;
+#X text 50 46 start_time => Campo que apresenta o horário real em
+que a linha começou a circular naquele dia. Os dados foram retirados
+do banco de dados fornecido pela Scipopulis \, capturadas pelo Olho
+Vivo.;
+#X restore 10 128 pd Ajuda_sobre_start_time;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 15 15 2 10 10;
+#X restore 228 53 pd ajuda;
+#X connect 1 0 3 0;
+#X connect 2 0 6 0;
+#X connect 3 0 4 0;
+#X connect 6 0 1 0;
+#X coords 0 -1 1 1 235 60 2 10 10;
+#X restore 189 159 pd horário_de_início;
+#N canvas 172 200 450 300 paradas 0;
+#X text 130 41 linha de ônibus;
+#X obj 31 136 pofxml onibus;
+#X symbolatom 31 39 16 0 0 0 - - -, f 16;
+#X obj 31 178 print;
+#X text 16 14 Retorna lista com dados de stops;
+#X msg 31 115 gets bus[@id=\$1][@stops];
+#X obj 31 157 route gets;
+#N canvas 452 275 450 300 ajuda 0;
+#X obj 10 10 bng 15 250 50 0 empty empty ? 5 8 0 10 -241339 -1 -260097
+;
+#X msg 10 93 \; pd-Ajuda_sobre_stops vis 1;
+#N canvas 593 370 463 137 Ajuda_sobre_stops 0;
+#X text 19 13 ### Descrição dos atributos nos xml dos ônibus;
+#X text 50 46 stops => O campo apresenta uma lista com as paradas de
+ônibus referentes a linha especificada. Tais pontos foram retirados
+do arquivo *stop_times.txt*. Fonte: SPTrans.;
+#X restore 10 128 pd Ajuda_sobre_stops;
+#X connect 0 0 1 0;
+#X coords 0 -1 1 1 15 15 2 10 10;
+#X restore 228 53 pd ajuda;
+#X connect 1 0 6 0;
+#X connect 2 0 5 0;
+#X connect 5 0 1 0;
+#X connect 6 0 3 0;
+#X coords 0 -1 1 1 235 60 2 10 10;
+#X restore 189 227 pd paradas;
+#N canvas 534 409 450 300 nodes_mapas 0;
+#N canvas 501 287 295 254 contador 0;
+#X obj 76 138 f;
+#X obj 117 138 + 1;
+#X obj 76 104 until;
+#X obj 117 159 mod 10;
+#X obj 166 127 sel 0;
+#X obj 123 20 inlet;
+#X obj 76 217 outlet;
+#X obj 123 70 t f f;
+#X connect 0 0 1 0;
+#X connect 0 0 6 0;
+#X connect 1 0 3 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 3 0 0 1;
+#X connect 4 0 2 1;
+#X connect 5 0 7 0;
+#X connect 7 0 2 0;
+#X connect 7 1 3 1;
+#X restore 157 103 pd contador;
+#X obj 157 176 route gets;
+#X obj 157 202 print;
+#X obj 207 48 pofxml mapas;
+#X obj 157 151 pofxml mapas;
+#X msg 157 127 gets nodes/node[\$1][@id];
+#X msg 207 20 getnum nodes;
+#X obj 207 69 print;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 3 0 7 0;
+#X connect 4 0 1 0;
+#X connect 5 0 4 0;
+#X connect 6 0 3 0;
+#X restore 141 350 pd nodes_mapas;

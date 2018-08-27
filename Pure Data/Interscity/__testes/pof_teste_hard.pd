@@ -1,0 +1,16 @@
+#N canvas 659 221 378 244 10;
+#X declare -lib pof;
+#X obj 222 23 declare -lib pof;
+#X msg 34 55 getnum /;
+#X msg 34 112 getnum links;
+#X msg 34 93 getnum nodes;
+#X msg 34 30 load ./map_true.xml;
+#X obj 34 169 print MapaS;
+#X obj 34 143 pofxml mapas;
+#X text 120 87 | |__ | |;
+#X text 140 103 try to parse freezes Pd;
+#X connect 1 0 6 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 6 0 5 0;
